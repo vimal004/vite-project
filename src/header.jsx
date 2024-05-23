@@ -1,5 +1,5 @@
 import React from "react";
-import "./index.css"; // You can remove this line if not using custom styles
+import "./index.css"; // Remove this line if not using custom styles
 
 const Header = () => {
   return (
@@ -33,17 +33,17 @@ const Header = () => {
         </div>
       </div>
       <div className="flex items-center space-x-4">
-        <button className="px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-700 transition duration-300">
+        <button className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300 transform hover:scale-105">
           Cart
         </button>
         <input
           className="w-80 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-300"
           placeholder="Search for products, brands and more"
         />
-        <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">
+        <button className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300 transform hover:scale-105">
           Dark Mode
         </button>
-        <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">
+        <button className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-300 transform hover:scale-105">
           Login
         </button>
       </div>
