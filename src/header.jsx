@@ -15,15 +15,25 @@ const Header = () => {
       </div>
       <div className="flex-grow mx-10">
         <div className="flex justify-center space-x-6 text-gray-700">
-          <a href="#" className="hover:text-blue-500 transition duration-300">Today's Deals</a>
-          <a href="#" className="hover:text-blue-500 transition duration-300">New Releases</a>
-          <a href="#" className="hover:text-blue-500 transition duration-300">Clothing</a>
-          <a href="#" className="hover:text-blue-500 transition duration-300">Electronics</a>
-          <a href="#" className="hover:text-blue-500 transition duration-300">Customer Service</a>
+          <a href="#" className="hover:text-blue-500 transition duration-300">
+            Today's Deals
+          </a>
+          <a href="#" className="hover:text-blue-500 transition duration-300">
+            New Releases
+          </a>
+          <a href="#" className="hover:text-blue-500 transition duration-300">
+            Clothing
+          </a>
+          <a href="#" className="hover:text-blue-500 transition duration-300">
+            Electronics
+          </a>
+          <a href="#" className="hover:text-blue-500 transition duration-300">
+            Customer Service
+          </a>
         </div>
       </div>
       <div className="flex items-center space-x-4">
-        <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">
+        <button className="px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-700 transition duration-300">
           Cart
         </button>
         <input
