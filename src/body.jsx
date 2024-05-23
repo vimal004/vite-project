@@ -6,7 +6,7 @@ import Footer from "./footer";
 const Body = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <h1 className="text-center text-3xl font-bold my-6">Shop Now!</h1>
+      <h1 className="text-center text-3xl font-bold mt-7 mb-4">Shop Now!</h1>
       <div className="flex-grow flex flex-wrap justify-center items-center gap-6 p-2">
         <Card
           title={"Clothing"}
