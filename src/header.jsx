@@ -32,10 +32,24 @@ const Header = () => {
           src="https://static.vecteezy.com/system/resources/previews/016/471/452/original/abstract-modern-ecommerce-logo-ecommerce-logo-design-shop-logo-design-template-creative-ecommerce-logo-vector.jpg"
           alt="Logo"
         />
-        <h1 className="text-2xl font-bold text-gray-800">E-Shop</h1>
+        <h1
+          className={
+            currmode
+              ? "text-2xl font-bold text-white"
+              : "text-2xl font-bold text-gray-800"
+          }
+        >
+          E-Shop
+        </h1>
       </div>
       <div className="flex-grow mx-10">
-        <div className="flex justify-center space-x-6 text-gray-700">
+        <div
+          className={
+            currmode
+              ? "flex justify-center space-x-6 text-white"
+              : "flex justify-center space-x-6 text-gray-700"
+          }
+        >
           <a href="#" className="hover:text-blue-500 transition duration-300">
             Today's Deals
           </a>
@@ -63,7 +77,7 @@ const Header = () => {
           focus:border-blue-500 transition duration-300"
           placeholder="Search for products, brands and more"
         />
-        <Button name={"Dark Mode"} action={togglefunc} />
+        <Button name={"Dark Mode"} action={togglefunc} mode={currmode} />
         <Button name={"Login"} />
       </div>
     </div>
