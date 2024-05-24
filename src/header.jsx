@@ -16,8 +16,15 @@ const Header = () => {
   useEffect(() => {
     console.log("Header rendered");
   }, []);
+
   return (
-    <div className="flex justify-between items-center bg-white p-6 shadow-lg">
+    <div
+      className={
+        currmode
+          ? "flex justify-between items-center bg-gray-800 p-6 shadow-lg"
+          : "flex justify-between items-center bg-white p-6 shadow-lg"
+      }
+    >
       <div className="flex items-center space-x-4">
         <img
           aria-placeholder="Logo"
