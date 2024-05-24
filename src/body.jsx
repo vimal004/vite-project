@@ -5,8 +5,10 @@ import Footer from "./footer";
 
 const Body = ({ currmode }) => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <h1 className="text-center text-3xl font-bold mt-7 mb-4">Shop Now!</h1>
+    <div className={`min-h-screen flex flex-col ${currmode ? 'bg-gray-700' : 'bg-white'}`}>
+      <h1 className={`text-center text-3xl font-bold mt-7 mb-4 ${currmode ? 'text-white' : 'text-black'}`}>
+        Shop Now!
+      </h1>
       <div className="flex-grow flex flex-wrap justify-center items-center gap-6 p-2">
         <Card
           title="Clothing"
