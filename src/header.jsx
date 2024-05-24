@@ -6,6 +6,11 @@ import Button from "./Utilities/button";
 import "./index.css"; // Remove this line if not using custom styles
 
 const Header = ({ currmode, togglefunc }) => {
+  const [lgn, setlgn] = useState("Login");
+  const lgtoggle = () => {
+    lgn === "Login" ? setlgn("Logout") : setlgn("Login");
+  };
+
   useEffect(() => {
     console.log("Header rendered");
   }, []);
@@ -61,7 +66,7 @@ const Header = ({ currmode, togglefunc }) => {
         </div>
       </div>
       <div className="flex items-center space-x-4">
-        <Button name={"Cart"} mode={currmode} altname={"Cart"}/>
+        <Button name={"Cart"} mode={currmode} altname={"Cart"} />
         <input
           className="w-80 px-4 py-2 border border-gray-300 rounded-full shadow focus:outline-none
 
@@ -74,7 +79,7 @@ const Header = ({ currmode, togglefunc }) => {
           mode={currmode}
           altname={"Light Mode"}
         />
-        <Button name={"Login"} mode={currmode} altname={"Login"} />
+        <Button name={lgn} mode={currmode} action={lgtoggle} altname={lgn} />
       </div>
     </div>
   );
