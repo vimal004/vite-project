@@ -5,8 +5,7 @@ import { useEffect } from "react";
 import Button from "./Utilities/button";
 import "./index.css"; // Remove this line if not using custom styles
 
-const Header = ({currmode,togglefunc}) => {
-
+const Header = ({ currmode, togglefunc }) => {
   useEffect(() => {
     console.log("Header rendered");
   }, []);
