@@ -5,13 +5,7 @@ import { useEffect } from "react";
 import Button from "./Utilities/button";
 import "./index.css"; // Remove this line if not using custom styles
 
-const Header = () => {
-  let lol = 0;
-  const [currmode, setmode] = useState(false);
-  const togglefunc = () => {
-    if (currmode ? setmode(false) : setmode(true));
-    console.log(currmode);
-  };
+const Header = ({currmode,togglefunc}) => {
 
   useEffect(() => {
     console.log("Header rendered");
@@ -77,7 +71,12 @@ const Header = () => {
           focus:border-blue-500 transition duration-300"
           placeholder="Search for products, brands and more"
         />
-        <Button name={"Dark Mode"} action={togglefunc} mode={currmode} />
+        <Button
+          name={"Dark Mode"}
+          action={togglefunc}
+          mode={currmode}
+          altname={"Light Mode"}
+        />
         <Button name={"Login"} />
       </div>
     </div>

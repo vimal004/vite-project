@@ -1,6 +1,6 @@
 import React from "react";
 
-const Footer = () => {
+const Footer = ({currmode}) => {
   // Function to handle the smooth scroll to top
   const scrollToTop = (event) => {
     event.preventDefault();
