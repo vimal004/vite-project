@@ -2,9 +2,20 @@ import React from "react";
 import { Route } from "react-router";
 import { useState } from "react";
 import { useEffect } from "react";
+import Button from "./Utilities/button";
 import "./index.css"; // Remove this line if not using custom styles
 
 const Header = () => {
+  let lol = 0;
+  const [currmode, setmode] = useState(false);
+  const togglefunc = () => {
+    if (currmode ? setmode(false) : setmode(true));
+    console.log(currmode);
+  };
+
+  useEffect(() => {
+    console.log("Header rendered");
+  }, []);
   return (
     <div className="flex justify-between items-center bg-white p-6 shadow-lg">
       <div className="flex items-center space-x-4">
@@ -45,12 +56,8 @@ const Header = () => {
           focus:border-blue-500 transition duration-300"
           placeholder="Search for products, brands and more"
         />
-        <button className="px-4 py-2 bg-blue-600 text-white rounded-full shadow hover:bg-blue-700 transition duration-300 transform hover:scale-105">
-          Dark Mode
-        </button>
-        <button className="px-4 py-2 bg-blue-600 text-white rounded-full shadow hover:bg-blue-700 transition duration-300 transform hover:scale-105">
-          Login
-        </button>
+        <Button name={"Dark Mode"} action={togglefunc} />
+        <Button name={"Login"} />
       </div>
     </div>
   );
