@@ -114,3 +114,5 @@ const LoginModal = ({ show, handleClose, currmode }) => {
 };
 
 export default LoginModal;
+
+
