@@ -2,9 +2,15 @@
 import React from 'react';
 
 const LoginModal = ({ show, handleClose }) => {
+  const handleModalClick = (e) => {
+    // Prevent clicks inside the modal from closing it
+    e.stopPropagation();
+  };
+
   return (
-    <div className={`fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center ${show ? '' : 'hidden'}`} onClick={handleClose}>
-      <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full relative" onClick={(e) => e.stopPropagation()}>
+    <div className={`fixed inset-0 flex items-center justify-center ${show ? '' : 'hidden'}`}>
+      <div className="absolute inset-0 bg-gray-800 bg-opacity-75" onClick={handleClose} />
+      <div className="bg-white p-8 rounded-lg shadow-lg max-w-md relative" onClick={handleModalClick}>
         <button className="absolute top-3 right-3 text-gray-400 hover:text-gray-600" onClick={handleClose}>
           &times;
         </button>
@@ -47,5 +53,7 @@ const LoginModal = ({ show, handleClose }) => {
 };
 
 export default LoginModal;
+
+
 
 

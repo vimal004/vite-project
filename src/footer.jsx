@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import LoginModal from "./Utilities/login";
+import App from "./App";
 
-const Footer = ({ currmode, loginmode }) => {
+const Footer = ({ currmode, loginmode, logintoggle }) => {
   // Function to handle the smooth scroll to top
-  const [close, setclose] = useState(false);
   const closetoggle = () => {
-    setclose(!close);
+    loginmode = false;
   };
   const scrollToTop = (event) => {
     event.preventDefault();
@@ -80,7 +80,7 @@ const Footer = ({ currmode, loginmode }) => {
         }`}
       >
         <h6>© 1996-2024, Eshop.com, Inc. or its affiliates</h6>
-        <LoginModal show={loginmode} handleClose={closetoggle} />
+        <LoginModal show={loginmode} handleClose={logintoggle} />
       </div>
     </div>
   );

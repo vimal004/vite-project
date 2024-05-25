@@ -23,7 +23,7 @@ const App = () => {
         togglefunc={togglefunc}
         logtoggle={lgntoggle}
       />
-      <Body currmode={currmode} lgnmode={lgnmodal} />
+      <Body currmode={currmode} lgnmode={lgnmodal} lgtgl={lgntoggle} />
     </div>
   );
 };
