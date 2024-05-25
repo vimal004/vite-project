@@ -13,18 +13,34 @@ mongoose
     console.log(e);
   });
 
-const User = mongoose.model(
-  "User",
-  new mongoose.Schema({
-    email: String,
-    password: String,
-  })
-);
+const userSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 6,
+  },
+});
+
+const User = mongoose.model("User", userSchema);
 
 userrouter.post("/", async (req, res) => {
-  User.create(req.body)
-    .then((users) => res.json(users))
-    .catch((err) => res.json(err));
+  try {
+    const newUser = new User(req.body);
+    const response = await newUser.save();
+    res.status(201).send(response);
+    console.log(response);
+  } catch (error) {
+    res
+      .status(500)
+      .send({ error: "Failed to create user", details: error.message });
+    console.error(error);
+  }
 });
 
 module.exports = userrouter;
