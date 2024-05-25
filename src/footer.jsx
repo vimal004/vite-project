@@ -80,7 +80,7 @@ const Footer = ({ currmode, loginmode, logintoggle }) => {
         }`}
       >
         <h6>© 1996-2024, Eshop.com, Inc. or its affiliates</h6>
-        <LoginModal show={loginmode} handleClose={logintoggle} />
+        <LoginModal show={loginmode} handleClose={logintoggle} currmode={currmode}/>
       </div>
     </div>
   );
