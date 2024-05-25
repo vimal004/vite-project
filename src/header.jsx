@@ -87,4 +87,3 @@ const Header = ({ currmode, togglefunc, logtoggle }) => {
 };
 
 export default Header;
-
