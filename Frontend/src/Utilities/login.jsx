@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 const LoginModal = ({ show, handleClose, currmode }) => {
   const handleModalClick = (e) => {
     // Prevent clicks inside the modal from closing it
     e.stopPropagation();
+  };
+
+  const [email, setemail] = useState("");
+  const [pwd, setpwd] = useState("");
+
+  const handleSubmit = (e) => {
+    console.log("Submitted");
+    e.preventDefault();
+    axios
+      .post("http://localhost:3000/api/user", { email, pwd })
+      .then((result) => {
+        res.send(result);
+        console.log(result);
+      })
+      .catch(() => {
+        console.log("Error");
+      });
   };
 
   return (
@@ -41,16 +59,17 @@ const LoginModal = ({ show, handleClose, currmode }) => {
         >
           Sign in
         </h2>
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={handleSubmit}>
           <div>
             <input
               type="text"
               name="username"
-              placeholder="Email or phone"
+              placeholder="Email"
               className={`w-full p-3 border ${
                 currmode ? "border-gray-600" : "border-gray-300"
               } rounded focus:outline-none focus:border-blue-500`}
               required
+              onChange={(e) => setemail(e.target.value)}
             />
           </div>
           <div>
@@ -62,6 +81,7 @@ const LoginModal = ({ show, handleClose, currmode }) => {
                 currmode ? "border-gray-600" : "border-gray-300"
               } rounded focus:outline-none focus:border-blue-500`}
               required
+              onChange={(e) => setpwd(e.target.value)}
             />
           </div>
           <button
