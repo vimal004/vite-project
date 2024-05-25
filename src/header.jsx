@@ -4,8 +4,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Button from "./Utilities/button";
 import "./index.css"; // Remove this line if not using custom styles
+import LoginModal from "./Utilities/login";
 
-const Header = ({ currmode, togglefunc }) => {
+const Header = ({ currmode, togglefunc, logtoggle }) => {
   const [lgn, setlgn] = useState("Login");
   const lgtoggle = () => {
     lgn === "Login" ? setlgn("Logout") : setlgn("Login");
@@ -79,10 +80,11 @@ const Header = ({ currmode, togglefunc }) => {
           mode={currmode}
           altname={"Light Mode"}
         />
-        <Button name={lgn} mode={currmode} action={lgtoggle} altname={lgn} />
+        <Button name={lgn} mode={currmode} action={logtoggle} altname={lgn} />
       </div>
     </div>
   );
 };
 
 export default Header;
+

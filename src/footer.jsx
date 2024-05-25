@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
+import LoginModal from "./Utilities/login";
 
-const Footer = ({ currmode }) => {
+const Footer = ({ currmode, loginmode }) => {
   // Function to handle the smooth scroll to top
+  const [close, setclose] = useState(false);
+  const closetoggle = () => {
+    setclose(!close);
+  };
   const scrollToTop = (event) => {
     event.preventDefault();
     window.scrollTo({
@@ -11,12 +16,24 @@ const Footer = ({ currmode }) => {
   };
 
   return (
-    <div className={`py-6 border-t border-gray-300 shadow-lg ${currmode ? 'bg-gray-800' : 'bg-white'}`}>
-      <div className={`text-center mb-4 ${currmode ? 'text-white' : 'text-gray-800'}`}>
+    <div
+      className={`py-6 border-t border-gray-300 shadow-lg ${
+        currmode ? "bg-gray-800" : "bg-white"
+      }`}
+    >
+      <div
+        className={`text-center mb-4 ${
+          currmode ? "text-white" : "text-gray-800"
+        }`}
+      >
         <a
           href="#"
           onClick={scrollToTop}
-          className={`inline-flex items-center px-4 py-2 rounded-full shadow-md hover:bg-blue-700 transition duration-300 ${currmode ? 'bg-blue-600 text-white hover:text-gray-300' : 'bg-blue-200 text-blue-600 hover:bg-blue-300 hover:text-blue-700'}`}
+          className={`inline-flex items-center px-4 py-2 rounded-full shadow-md hover:bg-blue-700 transition duration-300 ${
+            currmode
+              ? "bg-blue-600 text-white hover:text-gray-300"
+              : "bg-blue-200 text-blue-600 hover:bg-blue-300 hover:text-blue-700"
+          }`}
         >
           <span className="mr-2">Back to the top</span>
           <svg
@@ -35,22 +52,35 @@ const Footer = ({ currmode }) => {
           </svg>
         </a>
       </div>
-      <div className={`flex justify-center space-x-6 mb-4 ${currmode ? 'text-white' : 'text-gray-700'}`}>
+      <div
+        className={`flex justify-center space-x-6 mb-4 ${
+          currmode ? "text-white" : "text-gray-700"
+        }`}
+      >
         <a
           href="#"
-          className={`hover:text-blue-500 transition duration-300 ${currmode ? 'text-gray-400' : ''}`}
+          className={`hover:text-blue-500 transition duration-300 ${
+            currmode ? "text-gray-400" : ""
+          }`}
         >
           Conditions of Use & Sale
         </a>
         <a
           href="#"
-          className={`hover:text-blue-500 transition duration-300 ${currmode ? 'text-gray-400' : ''}`}
+          className={`hover:text-blue-500 transition duration-300 ${
+            currmode ? "text-gray-400" : ""
+          }`}
         >
           Privacy Notice
         </a>
       </div>
-      <div className={`text-center ${currmode ? 'text-gray-300' : 'text-gray-600'}`}>
+      <div
+        className={`text-center ${
+          currmode ? "text-gray-300" : "text-gray-600"
+        }`}
+      >
         <h6>© 1996-2024, Eshop.com, Inc. or its affiliates</h6>
+        <LoginModal show={loginmode} handleClose={closetoggle} />
       </div>
     </div>
   );

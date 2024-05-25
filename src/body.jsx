@@ -3,7 +3,7 @@ import Card from "./Utilities/card";
 import clothingImage from "./Utilities/pexels-solliefoto-298863.jpg";
 import Footer from "./footer";
 
-const Body = ({ currmode }) => {
+const Body = ({ currmode, lgnmode }) => {
   return (
     <div className={`min-h-screen flex flex-col ${currmode ? 'bg-gray-700' : 'bg-white'}`}>
       <h1 className={`text-center text-3xl font-bold mt-7 mb-4 ${currmode ? 'text-white' : 'text-black'}`}>
@@ -35,7 +35,7 @@ const Body = ({ currmode }) => {
           mode={currmode}
         />
       </div>
-      <Footer currmode={currmode} />
+      <Footer currmode={currmode} loginmode={lgnmode} />
     </div>
   );
 };
