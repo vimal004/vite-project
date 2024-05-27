@@ -36,7 +36,7 @@ const LoginModal = ({ show, handleClose, currmode, toggleRegister }) => {
       />
       <div
         className={`bg-white ${
-          currmode ? "text-white" : "text-gray-700"
+          currmode ? "text-gray-700" : "text-gray-700"
         } p-8 rounded-lg shadow-lg max-w-md relative`}
         onClick={handleModalClick}
       >
@@ -52,7 +52,7 @@ const LoginModal = ({ show, handleClose, currmode, toggleRegister }) => {
         </button>
         <h2
           className={`text-3xl font-bold ${
-            currmode ? "text-gray-200" : "text-gray-700"
+            currmode ? "text-gray-600" : "text-gray-700"
           } mb-6 text-center`}
         >
           Sign in
