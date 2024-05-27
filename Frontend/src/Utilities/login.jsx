@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const LoginModal = ({ show, handleClose, currmode }) => {
+const LoginModal = ({ show, handleClose, currmode, reg }) => {
   const handleModalClick = (e) => {
     // Prevent clicks inside the modal from closing it
     e.stopPropagation();
@@ -104,7 +104,7 @@ const LoginModal = ({ show, handleClose, currmode }) => {
           </a>
         </div>
         <div className="mt-6 text-center">
-          <a href="#" className="text-blue-500 hover:underline">
+          <a href="#" className="text-blue-500 hover:underline" onClick={reg}>
             Create account
           </a>
         </div>

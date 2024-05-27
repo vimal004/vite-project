@@ -4,6 +4,11 @@ import App from "./App";
 import RegisterModal from "./Utilities/register";
 
 const Footer = ({ currmode, loginmode, logintoggle }) => {
+  const [register, setregister] = useState(false);
+  const registertgl = () => {
+    setregister(!register);
+    console.log("register clicked");
+  };
   // Function to handle the smooth scroll to top
   const closetoggle = () => {
     loginmode = false;
@@ -81,11 +86,20 @@ const Footer = ({ currmode, loginmode, logintoggle }) => {
         }`}
       >
         <h6>© 1996-2024, Eshop.com, Inc. or its affiliates</h6>
-        <LoginModal
-          show={loginmode}
-          handleClose={logintoggle}
-          currmode={currmode}
-        />
+        {register ? (
+          <RegisterModal
+            show={loginmode}
+            handleClose={logintoggle}
+            currmode={currmode}
+          />
+        ) : (
+          <LoginModal
+            show={loginmode}
+            handleClose={logintoggle}
+            currmode={currmode}
+            reg={registertgl}
+          />
+        )}
       </div>
     </div>
   );
