@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const RegisterModal = ({ show, handleClose, currmode, toggleRegister }) => {
+  const [transition, setTransition] = useState(false);
+
+  useEffect(() => {
+    setTransition(show);
+  }, [show]);
+
   const handleModalClick = (e) => {
     e.stopPropagation();
   };
@@ -30,8 +36,8 @@ const RegisterModal = ({ show, handleClose, currmode, toggleRegister }) => {
 
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center transition-opacity duration-200 ${
-        show ? "" : "opacity-0 pointer-events-none"
+      className={`fixed inset-0 flex items-center justify-center transition-opacity duration-500 ${
+        transition ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
       onClick={handleClose}
     >
@@ -43,8 +49,8 @@ const RegisterModal = ({ show, handleClose, currmode, toggleRegister }) => {
       <div
         className={`bg-white ${
           currmode ? "text-gray-700" : "text-gray-700"
-        } p-8 rounded-lg shadow-lg max-w-md relative transform transition-transform duration-5000 ${
-          show ? "scale-100" : "scale-95"
+        } p-8 rounded-lg shadow-lg max-w-md relative transform transition-transform duration-500 ${
+          transition ? "scale-100" : "scale-95"
         }`}
         onClick={handleModalClick}
       >
