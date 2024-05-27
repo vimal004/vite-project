@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
-userrouter.post("/", async (req, res) => {
+userrouter.post("/register", async (req, res) => {
   try {
     const newUser = new User(req.body);
     const response = await newUser.save();
@@ -40,6 +40,22 @@ userrouter.post("/", async (req, res) => {
       .status(500)
       .send({ error: "Failed to create user", details: error.message });
     console.error(error);
+  }
+});
+
+userrouter.post("/login", async (req, res) => {
+  try {
+    const user = await User.findOne(req.body);
+    if (user) {
+      console.log("User found");
+      res.status(200).send(user);
+    } else {
+      res.status(401).send("Invalid User Credentials");
+      console.log("Invalid User Credentials");
+    }
+  } catch (error) {
+    res.status(500).send("Server Error");
+    console.log("Server Error:", error.message);
   }
 });
 

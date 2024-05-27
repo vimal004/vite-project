@@ -1,23 +1,29 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const LoginModal = ({ show, handleClose, currmode }) => {
+const RegisterModal = ({ show, handleClose, currmode }) => {
   const handleModalClick = (e) => {
     // Prevent clicks inside the modal from closing it
     e.stopPropagation();
   };
 
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
     axios
-      .post("http://localhost:3000/api/users/login", { email, password })
+      .post("http://localhost:3000/api/users/register", { email, password })
       .then((result) => console.log(result))
       .catch((error) => {
         console.error(
-          "Invalid Credentials:",
+          "Error registering user:",
           error.response ? error.response.data : error.message
         );
       });
@@ -56,19 +62,19 @@ const LoginModal = ({ show, handleClose, currmode }) => {
             currmode ? "text-gray-200" : "text-gray-700"
           } mb-6 text-center`}
         >
-          Sign in
+          Create Account
         </h2>
         <form className="space-y-5" onSubmit={handleSubmit}>
           <div>
             <input
               type="text"
-              name="username"
+              name="email"
               placeholder="Email"
               className={`w-full p-3 border ${
                 currmode ? "border-gray-600" : "border-gray-300"
               } rounded focus:outline-none focus:border-blue-500`}
               required
-              onChange={(e) => setemail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div>
@@ -80,7 +86,19 @@ const LoginModal = ({ show, handleClose, currmode }) => {
                 currmode ? "border-gray-600" : "border-gray-300"
               } rounded focus:outline-none focus:border-blue-500`}
               required
-              onChange={(e) => setpassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm Password"
+              className={`w-full p-3 border ${
+                currmode ? "border-gray-600" : "border-gray-300"
+              } rounded focus:outline-none focus:border-blue-500`}
+              required
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
           <button
@@ -89,28 +107,12 @@ const LoginModal = ({ show, handleClose, currmode }) => {
               currmode ? "bg-gray-600 text-white" : "bg-black text-white"
             } py-3 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50`}
           >
-            Next
+            Register
           </button>
         </form>
-        <div className="mt-6 text-center">
-          <a href="#" className="text-blue-500 hover:underline">
-            Forgot email?
-          </a>
-        </div>
-        <div className="mt-6 text-center text-gray-500">
-          Not your computer? Use Guest mode to sign in privately.{" "}
-          <a href="#" className="text-blue-500 hover:underline">
-            Learn more
-          </a>
-        </div>
-        <div className="mt-6 text-center">
-          <a href="#" className="text-blue-500 hover:underline">
-            Create account
-          </a>
-        </div>
       </div>
     </div>
   );
 };
 
-export default LoginModal;
+export default RegisterModal;

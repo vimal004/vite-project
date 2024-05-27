@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import LoginModal from "./Utilities/login";
 import App from "./App";
+import RegisterModal from "./Utilities/register";
 
 const Footer = ({ currmode, loginmode, logintoggle }) => {
   // Function to handle the smooth scroll to top
