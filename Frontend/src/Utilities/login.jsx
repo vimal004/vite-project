@@ -37,7 +37,9 @@ const LoginModal = ({ show, handleClose, currmode, toggleRegister }) => {
       <div
         className={`bg-white ${
           currmode ? "text-gray-700" : "text-gray-700"
-        } p-8 rounded-lg shadow-lg max-w-md relative`}
+        } p-8 rounded-lg shadow-lg max-w-md relative transform transition-transform duration-5000 ${
+          show ? "scale-100" : "scale-95"
+        }`}
         onClick={handleModalClick}
       >
         <button
