@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const LoginModal = ({ show, handleClose, currmode, reg }) => {
+const LoginModal = ({ show, handleClose, currmode, toggleRegister }) => {
   const handleModalClick = (e) => {
-    // Prevent clicks inside the modal from closing it
     e.stopPropagation();
   };
 
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -68,7 +67,7 @@ const LoginModal = ({ show, handleClose, currmode, reg }) => {
                 currmode ? "border-gray-600" : "border-gray-300"
               } rounded focus:outline-none focus:border-blue-500`}
               required
-              onChange={(e) => setemail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div>
@@ -80,7 +79,7 @@ const LoginModal = ({ show, handleClose, currmode, reg }) => {
                 currmode ? "border-gray-600" : "border-gray-300"
               } rounded focus:outline-none focus:border-blue-500`}
               required
-              onChange={(e) => setpassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <button
@@ -104,7 +103,11 @@ const LoginModal = ({ show, handleClose, currmode, reg }) => {
           </a>
         </div>
         <div className="mt-6 text-center">
-          <a href="#" className="text-blue-500 hover:underline" onClick={reg}>
+          <a
+            href="#"
+            className="text-blue-500 hover:underline"
+            onClick={toggleRegister}
+          >
             Create account
           </a>
         </div>

@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import LoginModal from "./Utilities/login";
-import App from "./App";
 import RegisterModal from "./Utilities/register";
 
 const Footer = ({ currmode, loginmode, logintoggle }) => {
-  const [register, setregister] = useState(false);
-  const registertgl = () => {
-    setregister(!register);
-    console.log("register clicked");
+  const [register, setRegister] = useState(false);
+
+  const toggleRegister = () => {
+    setRegister(!register);
   };
-  // Function to handle the smooth scroll to top
-  const closetoggle = () => {
-    loginmode = false;
+
+  const closeLoginModal = () => {
+    logintoggle();
   };
+
   const scrollToTop = (event) => {
     event.preventDefault();
     window.scrollTo({
@@ -86,20 +86,22 @@ const Footer = ({ currmode, loginmode, logintoggle }) => {
         }`}
       >
         <h6>© 1996-2024, Eshop.com, Inc. or its affiliates</h6>
-        {register ? (
-          <RegisterModal
-            show={loginmode}
-            handleClose={logintoggle}
-            currmode={currmode}
-          />
-        ) : (
-          <LoginModal
-            show={loginmode}
-            handleClose={logintoggle}
-            currmode={currmode}
-            reg={registertgl}
-          />
-        )}
+        {loginmode &&
+          (register ? (
+            <RegisterModal
+              show={loginmode}
+              handleClose={closeLoginModal}
+              currmode={currmode}
+              toggleRegister={toggleRegister}
+            />
+          ) : (
+            <LoginModal
+              show={loginmode}
+              handleClose={closeLoginModal}
+              currmode={currmode}
+              toggleRegister={toggleRegister}
+            />
+          ))}
       </div>
     </div>
   );

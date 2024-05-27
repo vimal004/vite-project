@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const RegisterModal = ({ show, handleClose, currmode }) => {
+const RegisterModal = ({ show, handleClose, currmode, toggleRegister }) => {
   const handleModalClick = (e) => {
-    // Prevent clicks inside the modal from closing it
     e.stopPropagation();
   };
 
@@ -110,6 +109,15 @@ const RegisterModal = ({ show, handleClose, currmode }) => {
             Register
           </button>
         </form>
+        <div className="mt-6 text-center">
+          <a
+            href="#"
+            className="text-blue-500 hover:underline"
+            onClick={toggleRegister}
+          >
+            Already have an account? Sign in
+          </a>
+        </div>
       </div>
     </div>
   );
