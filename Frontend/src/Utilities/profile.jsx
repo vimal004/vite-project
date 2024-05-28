@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Profile = () => {
+const Profile = (log, logfn) => {
   const [showPopup, setShowPopup] = useState(false);
 
   const togglePopup = () => {
@@ -30,8 +30,12 @@ const Profile = () => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <div><h6>2004.vimal@gmail.com</h6></div>
-          <button className="text-blue-500 hover:underline">Sign Out</button>
+          <div>
+            <h6>2004.vimal@gmail.com</h6>
+          </div>
+          <button className="text-blue-500 hover:underline" >
+            Sign Out
+          </button>
         </div>
       )}
     </div>

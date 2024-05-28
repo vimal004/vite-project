@@ -26,6 +26,7 @@ const App = () => {
         togglefunc={togglefunc}
         logtoggle={lgntoggle}
         log={log}
+        logfn={logfn}
       />
       <Body
         currmode={currmode}

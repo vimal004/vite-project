@@ -7,7 +7,7 @@ import "./index.css"; // Remove this line if not using custom styles
 import LoginModal from "./Utilities/login";
 import Profile from "./Utilities/profile";
 
-const Header = ({ currmode, togglefunc, logtoggle, log }) => {
+const Header = ({ currmode, togglefunc, logtoggle, log, logfn }) => {
   const [lgn, setlgn] = useState("Login");
   const lgtoggle = () => {
     lgn === "Login" ? setlgn("Logout") : setlgn("Login");
@@ -82,7 +82,7 @@ const Header = ({ currmode, togglefunc, logtoggle, log }) => {
           altname={"Light Mode"}
         />
         {log ? (
-          <Profile />
+          <Profile log={log} logfn={logfn} />
         ) : (
           <Button name={lgn} mode={currmode} action={logtoggle} altname={lgn} />
         )}
