@@ -2,20 +2,33 @@ import React, { useState, useEffect } from "react";
 
 const SignedIn = () => {
   const [showMessage, setShowMessage] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // Hide the message after 2 seconds
-    const timeout = setTimeout(() => {
+    // Start the fade-out effect after 1.5 seconds
+    const fadeTimeout = setTimeout(() => {
+      setFadeOut(true);
+    }, 1500);
+
+    // Completely hide the message after 2 seconds
+    const hideTimeout = setTimeout(() => {
       setShowMessage(false);
     }, 2000);
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(fadeTimeout);
+      clearTimeout(hideTimeout);
+    };
   }, []);
 
   return (
     <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
       {showMessage && (
-        <div className="bg-green-500 text-white p-4 rounded-md shadow-md transition-opacity duration-1000 ease-in-out">
+        <div
+          className={`bg-green-500 text-white p-4 rounded-md shadow-md transition-opacity duration-1000 ease-in-out ${
+            fadeOut ? "opacity-0" : "opacity-100"
+          }`}
+        >
           Sign In Successful!
         </div>
       )}
@@ -24,4 +37,3 @@ const SignedIn = () => {
 };
 
 export default SignedIn;
-

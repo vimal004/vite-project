@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import SignedIn from "./signedin";
 import axios from "axios";
 
 const LoginModal = ({
@@ -38,7 +39,9 @@ const LoginModal = ({
   };
 
   return log ? (
-    <div></div>
+    <div>
+      <SignedIn />
+    </div>
   ) : (
     <div
       className={`fixed inset-0 flex items-center justify-center transition-opacity duration-500 ${
