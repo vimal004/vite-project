@@ -3,7 +3,7 @@ import Card from "./Utilities/card";
 import clothingImage from "./Utilities/pexels-solliefoto-298863.jpg";
 import Footer from "./footer";
 
-const Body = ({ currmode, lgnmode, lgtgl }) => {
+const Body = ({ currmode, lgnmode, lgtgl, logfn, log }) => {
   return (
     <div
       className={`min-h-screen flex flex-col ${
@@ -43,7 +43,13 @@ const Body = ({ currmode, lgnmode, lgtgl }) => {
           mode={currmode}
         />
       </div>
-      <Footer currmode={currmode} loginmode={lgnmode} logintoggle={lgtgl} />
+      <Footer
+        currmode={currmode}
+        loginmode={lgnmode}
+        logintoggle={lgtgl}
+        logfn={logfn}
+        log={log}
+      />
     </div>
   );
 };

@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const LoginModal = ({ show, handleClose, currmode, toggleRegister }) => {
+const LoginModal = ({
+  show,
+  handleClose,
+  currmode,
+  toggleRegister,
+  logfn,
+  log,
+}) => {
   const [transition, setTransition] = useState(false);
 
   useEffect(() => {
@@ -19,7 +26,9 @@ const LoginModal = ({ show, handleClose, currmode, toggleRegister }) => {
     e.preventDefault();
     axios
       .post("http://localhost:3000/api/users/login", { email, password })
-      .then((result) => console.log(result))
+      .then(() => {
+        logfn();
+      })
       .catch((error) => {
         console.error(
           "Invalid Credentials:",
@@ -28,7 +37,9 @@ const LoginModal = ({ show, handleClose, currmode, toggleRegister }) => {
       });
   };
 
-  return (
+  return log ? (
+    <div></div>
+  ) : (
     <div
       className={`fixed inset-0 flex items-center justify-center transition-opacity duration-500 ${
         transition ? "opacity-100" : "opacity-0 pointer-events-none"
@@ -125,4 +136,3 @@ const LoginModal = ({ show, handleClose, currmode, toggleRegister }) => {
 };
 
 export default LoginModal;
-

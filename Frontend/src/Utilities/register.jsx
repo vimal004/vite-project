@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const RegisterModal = ({ show, handleClose, currmode, toggleRegister }) => {
+const RegisterModal = ({
+  show,
+  handleClose,
+  currmode,
+  toggleRegister,
+  logged,
+}) => {
   const [transition, setTransition] = useState(false);
 
   useEffect(() => {
