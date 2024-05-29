@@ -56,3 +56,5 @@ const Body = ({ currmode, lgnmode, lgtgl, logfn, log }) => {
 };
 
 export default Body;
+
+

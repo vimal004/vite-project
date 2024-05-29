@@ -37,3 +37,4 @@ const Registered = () => {
 };
 
 export default Registered;
+

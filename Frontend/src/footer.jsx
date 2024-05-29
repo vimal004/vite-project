@@ -113,3 +113,5 @@ const Footer = ({ currmode, loginmode, logintoggle, logfn, log }) => {
 };
 
 export default Footer;
+
+
