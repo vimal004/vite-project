@@ -8,6 +8,7 @@ import LoginModal from "./Utilities/login";
 import Profile from "./Utilities/profile";
 
 const Header = ({ currmode, togglefunc, logtoggle, log, logfn }) => {
+
   const [lgn, setlgn] = useState("Login");
   const lgtoggle = () => {
     lgn === "Login" ? setlgn("Logout") : setlgn("Login");
@@ -50,7 +51,10 @@ const Header = ({ currmode, togglefunc, logtoggle, log, logfn }) => {
               : "flex justify-center space-x-6 text-gray-700"
           }
         >
-          <a href="https://www.meesho.com/api/v1/navigation-tree" className="hover:text-blue-500 transition duration-300">
+          <a
+            href="https://www.meesho.com/api/v1/navigation-tree"
+            className="hover:text-blue-500 transition duration-300"
+          >
             Today's Deals
           </a>
           <a href="#" className="hover:text-blue-500 transition duration-300">

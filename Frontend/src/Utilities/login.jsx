@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
-import SignedIn from "./SignedIn";
+import SignedIn from "./signedin";
 import axios from "axios";
 import { useContext } from "react";
 import { Context } from "../App";
 
-const LoginModal = ({ show, handleClose, currmode, toggleRegister, logfn, log }) => {
+const LoginModal = ({
+  show,
+  handleClose,
+  currmode,
+  toggleRegister,
+  logfn,
+  log,
+}) => {
   const [transition, setTransition] = useState(false);
   const { mail, setmail } = useContext(Context);
 
@@ -28,7 +35,10 @@ const LoginModal = ({ show, handleClose, currmode, toggleRegister, logfn, log })
         setmail(email);
       })
       .catch((error) => {
-        console.error("Invalid Credentials:", error.response ? error.response.data : error.message);
+        console.error(
+          "Invalid Credentials:",
+          error.response ? error.response.data : error.message
+        );
       });
   };
 
@@ -58,7 +68,9 @@ const LoginModal = ({ show, handleClose, currmode, toggleRegister, logfn, log })
       >
         <button
           className={`absolute top-3 right-3 ${
-            currmode ? "text-gray-400 hover:text-gray-200" : "text-gray-600 hover:text-gray-800"
+            currmode
+              ? "text-gray-400 hover:text-gray-200"
+              : "text-gray-600 hover:text-gray-800"
           }`}
           onClick={handleClose}
         >
@@ -131,4 +143,3 @@ const LoginModal = ({ show, handleClose, currmode, toggleRegister, logfn, log })
 };
 
 export default LoginModal;
-
