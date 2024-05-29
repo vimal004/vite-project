@@ -4,6 +4,7 @@ import Body from "./body";
 import { useState } from "react";
 export const Context = React.createContext();
 const App = () => {
+  const [reg, setreg] = useState(false);
   const [currmode, setmode] = useState(false);
   const togglefunc = () => {
     if (currmode ? setmode(false) : setmode(true));
@@ -24,6 +25,8 @@ const App = () => {
   const values = {
     mail,
     setmail,
+    reg,
+    setreg,
   };
 
   return (

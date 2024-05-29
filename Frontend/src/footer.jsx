@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import LoginModal from "./Utilities/login";
 import RegisterModal from "./Utilities/register";
+import { Context } from "./App";
 
 const Footer = ({ currmode, loginmode, logintoggle, logfn, log }) => {
   const [register, setRegister] = useState(false);
+  const { reg } = useContext(Context);
 
   const toggleRegister = () => {
     setRegister(!register);
@@ -87,7 +89,7 @@ const Footer = ({ currmode, loginmode, logintoggle, logfn, log }) => {
       >
         <h6>© 1996-2024, Eshop.com, Inc. or its affiliates</h6>
         {loginmode &&
-          (register ? (
+          (register && !reg ? (
             <RegisterModal
               show={loginmode}
               handleClose={closeLoginModal}

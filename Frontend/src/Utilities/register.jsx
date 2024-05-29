@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Context } from "../App";
 import axios from "axios";
 
 const RegisterModal = ({
@@ -9,7 +10,7 @@ const RegisterModal = ({
   logged,
 }) => {
   const [transition, setTransition] = useState(false);
-
+  const { reg, setreg } = useContext(Context);
   useEffect(() => {
     setTransition(show);
   }, [show]);
@@ -31,7 +32,10 @@ const RegisterModal = ({
 
     axios
       .post("http://localhost:3000/api/users/register", { email, password })
-      .then((result) => console.log(result))
+      .then(() => {
+        setreg(!reg);
+        console.log("Registeration done");
+      })
       .catch((error) => {
         console.error(
           "Error registering user:",

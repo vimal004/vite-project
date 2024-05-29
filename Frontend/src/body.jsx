@@ -43,6 +43,7 @@ const Body = ({ currmode, lgnmode, lgtgl, logfn, log }) => {
           mode={currmode}
         />
       </div>
+
       <Footer
         currmode={currmode}
         loginmode={lgnmode}
