@@ -6,7 +6,7 @@ import Registered from "./Utilities/registered";
 
 const Footer = ({ currmode, loginmode, logintoggle, logfn, log }) => {
   const [register, setRegister] = useState(false);
-  const { reg } = useContext(Context);
+  const { reg, r } = useContext(Context);
 
   const toggleRegister = () => {
     setRegister(!register);
@@ -89,6 +89,8 @@ const Footer = ({ currmode, loginmode, logintoggle, logfn, log }) => {
         }`}
       >
         <h6>© 1996-2024, Eshop.com, Inc. or its affiliates</h6>
+        {r ? <Registered /> : <div></div>}
+
         {loginmode &&
           (register && !reg ? (
             <RegisterModal
@@ -97,7 +99,7 @@ const Footer = ({ currmode, loginmode, logintoggle, logfn, log }) => {
               currmode={currmode}
               toggleRegister={toggleRegister}
             />
-        ) : (
+          ) : (
             <LoginModal
               show={loginmode}
               handleClose={closeLoginModal}
@@ -113,5 +115,3 @@ const Footer = ({ currmode, loginmode, logintoggle, logfn, log }) => {
 };
 
 export default Footer;
-
-

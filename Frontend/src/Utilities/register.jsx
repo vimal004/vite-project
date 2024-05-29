@@ -11,7 +11,7 @@ const RegisterModal = ({
   logged,
 }) => {
   const [transition, setTransition] = useState(false);
-  const { reg, setreg } = useContext(Context);
+  const { reg, setreg, r, setr } = useContext(Context);
   useEffect(() => {
     setTransition(show);
   }, [show]);
@@ -34,7 +34,7 @@ const RegisterModal = ({
     axios
       .post("http://localhost:3000/api/users/register", { email, password })
       .then(() => {
-        alert("Registration Successful!");
+        setr(!r);
         setreg(!reg);
       })
       .catch((error) => {
@@ -145,5 +145,3 @@ const RegisterModal = ({
 };
 
 export default RegisterModal;
-
-

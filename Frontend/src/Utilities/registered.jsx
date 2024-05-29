@@ -22,7 +22,7 @@ const Registered = () => {
   }, []);
 
   return (
-    <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+    <div className="fixed top-0 left-1/2 transform -translate-x-1/2 mt-4">
       {showMessage && (
         <div
           className={`bg-green-500 text-white p-4 rounded-md shadow-md transition-opacity duration-1000 ease-in-out ${
@@ -37,4 +37,3 @@ const Registered = () => {
 };
 
 export default Registered;
-
