@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import SignedIn from "./signedin";
 import axios from "axios";
+import { useContext } from "react";
+import { Context } from "../App";
 
 const LoginModal = ({
   show,
@@ -11,7 +13,7 @@ const LoginModal = ({
   log,
 }) => {
   const [transition, setTransition] = useState(false);
-
+  const { mail, setmail } = useContext(Context);
   useEffect(() => {
     setTransition(show);
   }, [show]);
@@ -29,6 +31,7 @@ const LoginModal = ({
       .post("http://localhost:3000/api/users/login", { email, password })
       .then(() => {
         logfn();
+        setmail(email);
       })
       .catch((error) => {
         console.error(

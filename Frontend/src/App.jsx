@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./header";
 import Body from "./body";
 import { useState } from "react";
-
+export const Context = React.createContext();
 const App = () => {
   const [currmode, setmode] = useState(false);
   const togglefunc = () => {
@@ -19,22 +19,31 @@ const App = () => {
     setlog(!log);
   };
 
+  const [mail, setmail] = useState("");
+
+  const values = {
+    mail,
+    setmail,
+  };
+
   return (
     <div className="">
-      <Header
-        currmode={currmode}
-        togglefunc={togglefunc}
-        logtoggle={lgntoggle}
-        log={log}
-        logfn={logfn}
-      />
-      <Body
-        currmode={currmode}
-        lgnmode={lgnmodal}
-        lgtgl={lgntoggle}
-        logfn={logfn}
-        log={log}
-      />
+      <Context.Provider value={values}>
+        <Header
+          currmode={currmode}
+          togglefunc={togglefunc}
+          logtoggle={lgntoggle}
+          log={log}
+          logfn={logfn}
+        />
+        <Body
+          currmode={currmode}
+          lgnmode={lgnmodal}
+          lgtgl={lgntoggle}
+          logfn={logfn}
+          log={log}
+        />
+      </Context.Provider>
     </div>
   );
 };

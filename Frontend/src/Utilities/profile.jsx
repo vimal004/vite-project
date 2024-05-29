@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { Context } from "../App";
+import { useContext } from "react";
 
 const Profile = (log, logfn) => {
   const [showPopup, setShowPopup] = useState(false);
-
+  const { mail, setmail } = useContext(Context);
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
@@ -31,11 +33,9 @@ const Profile = (log, logfn) => {
           onMouseLeave={handleMouseLeave}
         >
           <div>
-            <h6>2004.vimal@gmail.com</h6>
+            <h6>{mail}</h6>
           </div>
-          <button className="text-blue-500 hover:underline" >
-            Sign Out
-          </button>
+          <button className="text-blue-500 hover:underline">Sign Out</button>
         </div>
       )}
     </div>
