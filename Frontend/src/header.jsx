@@ -28,7 +28,7 @@ const Header = ({ currmode, togglefunc, logtoggle, log, logfn }) => {
       <div className="flex items-center space-x-4">
         <img
           aria-placeholder="Logo"
-          className="h-12"
+          className="h-12 w-12 rounded-full"
           src="https://static.vecteezy.com/system/resources/previews/016/471/452/original/abstract-modern-ecommerce-logo-ecommerce-logo-design-shop-logo-design-template-creative-ecommerce-logo-vector.jpg"
           alt="Logo"
         />
