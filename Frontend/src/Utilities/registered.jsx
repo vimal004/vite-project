@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const SignedIn = () => {
+const Registered = () => {
   const [showMessage, setShowMessage] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
 

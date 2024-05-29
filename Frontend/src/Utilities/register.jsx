@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Context } from "../App";
 import axios from "axios";
+import Registered from "./registered";
 
 const RegisterModal = ({
   show,
@@ -33,8 +34,8 @@ const RegisterModal = ({
     axios
       .post("http://localhost:3000/api/users/register", { email, password })
       .then(() => {
+        alert("Registration Successful!");
         setreg(!reg);
-        console.log("Registeration done");
       })
       .catch((error) => {
         console.error(
@@ -44,7 +45,9 @@ const RegisterModal = ({
       });
   };
 
-  return (
+  return reg ? (
+    <div></div>
+  ) : (
     <div
       className={`fixed inset-0 flex items-center justify-center transition-opacity duration-500 ${
         transition ? "opacity-100" : "opacity-0 pointer-events-none"

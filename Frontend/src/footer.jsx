@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import LoginModal from "./Utilities/login";
 import RegisterModal from "./Utilities/register";
 import { Context } from "./App";
+import Registered from "./Utilities/registered";
 
 const Footer = ({ currmode, loginmode, logintoggle, logfn, log }) => {
   const [register, setRegister] = useState(false);
@@ -96,7 +97,7 @@ const Footer = ({ currmode, loginmode, logintoggle, logfn, log }) => {
               currmode={currmode}
               toggleRegister={toggleRegister}
             />
-          ) : (
+        ) : (
             <LoginModal
               show={loginmode}
               handleClose={closeLoginModal}
