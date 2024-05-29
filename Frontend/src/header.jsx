@@ -82,7 +82,7 @@ const Header = ({ currmode, togglefunc, logtoggle, log, logfn }) => {
           altname={"Light Mode"}
         />
         {log ? (
-          <Profile log={log} logfn={logfn} />
+          <Profile />
         ) : (
           <Button name={lgn} mode={currmode} action={logtoggle} altname={lgn} />
         )}

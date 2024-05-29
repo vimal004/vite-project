@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Context } from "../App";
 import { useContext } from "react";
 
-const Profile = (log, logfn) => {
+const Profile = () => {
   const [showPopup, setShowPopup] = useState(false);
-  const { mail, setmail } = useContext(Context);
+  const { mail, setmail, log, setlog } = useContext(Context);
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
@@ -35,7 +35,14 @@ const Profile = (log, logfn) => {
           <div>
             <h6>{mail}</h6>
           </div>
-          <button className="text-blue-500 hover:underline">Sign Out</button>
+          <button
+            className="text-blue-500 hover:underline"
+            onClick={() => {
+              setlog(!log);
+            }}
+          >
+            Sign Out
+          </button>
         </div>
       )}
     </div>

@@ -30,6 +30,8 @@ const App = () => {
     setreg,
     r,
     setr,
+    log,
+    setlog,
   };
 
   return (
