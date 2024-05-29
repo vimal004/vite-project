@@ -50,7 +50,7 @@ const Header = ({ currmode, togglefunc, logtoggle, log, logfn }) => {
               : "flex justify-center space-x-6 text-gray-700"
           }
         >
-          <a href="#" className="hover:text-blue-500 transition duration-300">
+          <a href="https://www.meesho.com/api/v1/navigation-tree" className="hover:text-blue-500 transition duration-300">
             Today's Deals
           </a>
           <a href="#" className="hover:text-blue-500 transition duration-300">
