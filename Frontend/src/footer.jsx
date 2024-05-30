@@ -5,23 +5,9 @@ import { Context } from "./App";
 import Registered from "./Utilities/registered";
 
 const Footer = () => {
-  const {
-    mail,
-    setmail,
-    reg,
-    setreg,
-    r,
-    setr,
-    log,
-    setlog,
-    currmode,
-    setmode,
-    lgnmodal,
-    setlgnmodal,
-    lgntoggle,
-    logfn,
-    togglefunc,
-  } = useContext(Context);
+  const { reg, r, log, currmode, lgnmodal, lgntoggle, logfn } = useContext(
+    Context
+  );
   const [register, setRegister] = useState(false);
   const toggleRegister = () => {
     setRegister(!register);

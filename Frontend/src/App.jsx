@@ -68,7 +68,7 @@ const App = () => {
     <div>
       <Context.Provider value={values}>
         <Header />
-        <Body/>
+        <Body />
       </Context.Provider>
     </div>
   );
