@@ -7,25 +7,7 @@ export const Context = React.createContext();
 
 const App = () => {
   const [cdat, setcdat] = useState([]);
-
-  useEffect(() => {
-    fetchdata();
-  }, []);
-
-  const fetchdata = async () => {
-    const response = await fetch(
-      "https://www.meesho.com/api/v1/navigation-tree"
-    );
-    const jsondata = await response.json();
-    console.log(jsondata);
-    console.log(jsondata?.payload?.level_1[1]);
-    setcdat(jsondata?.payload?.level_1[1]?.level_2);
-  };
-
-  useEffect(() => {
-    console.log(cdat);
-  }, [cdat]);
-
+  const [regi, setregi] = useState(false);
   const [r, setr] = useState(false);
   const [reg, setreg] = useState(false);
   const [currmode, setmode] = useState(false);
@@ -62,6 +44,8 @@ const App = () => {
     lgntoggle,
     logfn,
     togglefunc,
+    regi,
+    setregi,
   };
 
   return (

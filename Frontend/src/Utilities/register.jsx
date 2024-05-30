@@ -11,7 +11,7 @@ const RegisterModal = ({
   logged,
 }) => {
   const [transition, setTransition] = useState(false);
-  const { reg, setreg, r, setr } = useContext(Context);
+  const { reg, setreg, r, setr, regi, setregi } = useContext(Context);
   useEffect(() => {
     setTransition(show);
   }, [show]);
@@ -36,12 +36,10 @@ const RegisterModal = ({
       .then(() => {
         setr(!r);
         setreg(!reg);
+        setregi(!regi);
       })
-      .catch((error) => {
-        console.error(
-          "Error registering user:",
-          error.response ? error.response.data : error.message
-        );
+      .catch(() => {
+        setregi(!regi);
       });
   };
 
@@ -121,6 +119,13 @@ const RegisterModal = ({
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
+          {regi ? (
+            <div className="text-red-500">
+              <h6>Registration Unsuccessful. Try Again.</h6>
+            </div>
+          ) : (
+            <div className=""></div>
+          )}
           <button
             type="submit"
             className={`w-full ${
