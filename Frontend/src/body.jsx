@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "./Utilities/card";
 import clothingImage from "./Utilities/pexels-solliefoto-298863.jpg";
 import Footer from "./footer";
+import { Context } from "./App";
 
-const Body = ({ currmode, lgnmode, lgtgl, logfn, log }) => {
+const Body = () => {
+  const { currmode } = useContext(Context);
   return (
     <div
       className={`min-h-screen flex flex-col ${
@@ -44,17 +46,9 @@ const Body = ({ currmode, lgnmode, lgtgl, logfn, log }) => {
         />
       </div>
 
-      <Footer
-        currmode={currmode}
-        loginmode={lgnmode}
-        logintoggle={lgtgl}
-        logfn={logfn}
-        log={log}
-      />
+      <Footer />
     </div>
   );
 };
 
 export default Body;
-
-

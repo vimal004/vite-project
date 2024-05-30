@@ -4,16 +4,31 @@ import RegisterModal from "./Utilities/register";
 import { Context } from "./App";
 import Registered from "./Utilities/registered";
 
-const Footer = ({ currmode, loginmode, logintoggle, logfn, log }) => {
+const Footer = () => {
+  const {
+    mail,
+    setmail,
+    reg,
+    setreg,
+    r,
+    setr,
+    log,
+    setlog,
+    currmode,
+    setmode,
+    lgnmodal,
+    setlgnmodal,
+    lgntoggle,
+    logfn,
+    togglefunc,
+  } = useContext(Context);
   const [register, setRegister] = useState(false);
-  const { reg, r } = useContext(Context);
-
   const toggleRegister = () => {
     setRegister(!register);
   };
 
   const closeLoginModal = () => {
-    logintoggle();
+    lgntoggle();
   };
 
   const scrollToTop = (event) => {
@@ -91,17 +106,17 @@ const Footer = ({ currmode, loginmode, logintoggle, logfn, log }) => {
         <h6>© 1996-2024, Eshop.com, Inc. or its affiliates</h6>
         {r ? <Registered /> : <div></div>}
 
-        {loginmode &&
+        {lgnmodal &&
           (register && !reg ? (
             <RegisterModal
-              show={loginmode}
+              show={lgnmodal}
               handleClose={closeLoginModal}
               currmode={currmode}
               toggleRegister={toggleRegister}
             />
           ) : (
             <LoginModal
-              show={loginmode}
+              show={lgnmodal}
               handleClose={closeLoginModal}
               currmode={currmode}
               toggleRegister={toggleRegister}

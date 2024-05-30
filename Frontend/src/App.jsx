@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "./header";
+import { createBrowserRouter, Outlet } from "react-router-dom";
 import Body from "./body";
 
 export const Context = React.createContext();
@@ -54,25 +55,20 @@ const App = () => {
     setr,
     log,
     setlog,
+    currmode,
+    setmode,
+    lgnmodal,
+    setlgnmodal,
+    lgntoggle,
+    logfn,
+    togglefunc,
   };
 
   return (
     <div>
       <Context.Provider value={values}>
-        <Header
-          currmode={currmode}
-          togglefunc={togglefunc}
-          logtoggle={lgntoggle}
-          log={log}
-          logfn={logfn}
-        />
-        <Body
-          currmode={currmode}
-          lgnmode={lgnmodal}
-          lgtgl={lgntoggle}
-          logfn={logfn}
-          log={log}
-        />
+        <Header />
+        <Body/>
       </Context.Provider>
     </div>
   );

@@ -6,9 +6,27 @@ import Button from "./Utilities/button";
 import "./index.css"; // Remove this line if not using custom styles
 import LoginModal from "./Utilities/login";
 import Profile from "./Utilities/profile";
+import { Context } from "./App";
+import { useContext } from "react";
 
-const Header = ({ currmode, togglefunc, logtoggle, log, logfn }) => {
-
+const Header = () => {
+  const {
+    mail,
+    setmail,
+    reg,
+    setreg,
+    r,
+    setr,
+    log,
+    setlog,
+    currmode,
+    setmode,
+    lgnmodal,
+    setlgnmodal,
+    lgntoggle,
+    logfn,
+    togglefunc,
+  } = useContext(Context);
   const [lgn, setlgn] = useState("Login");
   const lgtoggle = () => {
     lgn === "Login" ? setlgn("Logout") : setlgn("Login");
@@ -88,7 +106,7 @@ const Header = ({ currmode, togglefunc, logtoggle, log, logfn }) => {
         {log ? (
           <Profile />
         ) : (
-          <Button name={lgn} mode={currmode} action={logtoggle} altname={lgn} />
+          <Button name={lgn} mode={currmode} action={lgntoggle} altname={lgn} />
         )}
       </div>
     </div>
